@@ -4,6 +4,8 @@ import app.xsis.dao.master.AgamaDao;
 import app.xsis.models.master.AgamaEntity;
 import app.xsis.repository.AgamaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -43,5 +45,10 @@ public class AgamaDaoImpl implements AgamaDao {
    @Override
    public void deleteById(long id) {
       agamaRepository.deleteById(id);
+   }
+
+   @Override
+   public Page<AgamaEntity> findAll(Pageable pageable) {
+      return agamaRepository.findAll(pageable);
    }
 }

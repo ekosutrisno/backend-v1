@@ -7,11 +7,12 @@ import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
 @MappedSuperclass
-public class CommonEntity {
+public class CommonEntity implements Serializable {
    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+07:00")
    @Temporal(TemporalType.TIMESTAMP)
    @Column(name = "created_on", nullable = false)

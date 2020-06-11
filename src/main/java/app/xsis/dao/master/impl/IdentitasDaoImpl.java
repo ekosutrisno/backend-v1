@@ -47,4 +47,5 @@ public class IdentitasDaoImpl implements IdentitasDao {
    public void deleteById(long entityId) {
       identitasRepository.deleteById(entityId);
    }
+
 }

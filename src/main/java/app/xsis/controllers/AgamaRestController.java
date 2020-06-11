@@ -4,6 +4,8 @@ import app.xsis.dto.ResponseCustom;
 import app.xsis.models.master.AgamaEntity;
 import app.xsis.services.AgamaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -23,6 +25,11 @@ public class AgamaRestController {
    @GetMapping
    public List<AgamaEntity> getAllAgama() {
       return agamaService.getAllAgama();
+   }
+
+   @GetMapping("/page")
+   public Page<AgamaEntity> getAllAgama(Pageable pageable) {
+      return agamaService.findAll(pageable);
    }
 
    @GetMapping("/{id}")

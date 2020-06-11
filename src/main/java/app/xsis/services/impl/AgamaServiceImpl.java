@@ -4,10 +4,12 @@ import app.xsis.dao.master.AgamaDao;
 import app.xsis.models.master.AgamaEntity;
 import app.xsis.services.AgamaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -32,5 +34,10 @@ public class AgamaServiceImpl implements AgamaService {
    @Override
    public AgamaEntity saveData(AgamaEntity agama) {
       return agamaDao.create(agama);
+   }
+
+   @Override
+   public Page<AgamaEntity> findAll(Pageable pageable) {
+      return agamaDao.findAll(pageable);
    }
 }

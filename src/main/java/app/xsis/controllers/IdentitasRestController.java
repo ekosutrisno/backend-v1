@@ -4,6 +4,7 @@ import app.xsis.dto.ResponseCustom;
 import app.xsis.models.master.DataIdentitasEntity;
 import app.xsis.services.IdentitasService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
