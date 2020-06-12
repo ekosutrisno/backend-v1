@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = DataIdentitasEntity.TABLE_NAME)
 public class DataIdentitasEntity implements Serializable {
-   public static final  String TABLE_NAME ="m_identitas";
+   static final  String TABLE_NAME ="m_identitas";
 
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)

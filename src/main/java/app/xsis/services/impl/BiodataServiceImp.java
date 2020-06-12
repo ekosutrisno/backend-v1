@@ -1,7 +1,7 @@
 package app.xsis.services.impl;
 
 import app.xsis.dao.transaction.BiodataDao;
-import app.xsis.dto.ResponseCustom;
+import app.xsis.dao.transaction.EmployeeDao;
 import app.xsis.models.transaction.BiodataEntity;
 import app.xsis.services.BiodataService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,11 +35,6 @@ public class BiodataServiceImp implements BiodataService {
 
    @Override
    public Page<BiodataEntity> findAll(Pageable pageable) {
-      List<BiodataEntity> tempBiodata = new ArrayList<>();
-      for (BiodataEntity biodata : biodataDao.findAll()) {
-         if (!biodata.getIsDelete())
-            tempBiodata.add(biodata);
-      }
       return biodataDao.findAll(pageable);
    }
 

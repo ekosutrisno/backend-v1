@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = StatusPernikahanEntity.TABLE_NAME)
 public class StatusPernikahanEntity implements Serializable {
-   public static final String TABLE_NAME = "m_status_pernikahan";
+   static final String TABLE_NAME = "m_status_pernikahan";
 
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)

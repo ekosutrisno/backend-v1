@@ -14,11 +14,11 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = BiodataEntity.TABLE_NAME)
-@SecondaryTable(name = BiodataEntity.TABLE_NAME_SECONDARY, pkJoinColumns = @PrimaryKeyJoinColumn(name = "biodataId"))
+@SecondaryTable(name = BiodataEntity.TABLE_NAME_SECONDARY, pkJoinColumns = @PrimaryKeyJoinColumn(name = "biodata_id"))
 @EqualsAndHashCode(callSuper = false)
 public class BiodataEntity extends CommonEntity {
-   public static final String TABLE_NAME = "x_biodata";
-   public static final String TABLE_NAME_SECONDARY = "x_address";
+   static final String TABLE_NAME = "x_biodata";
+   static final String TABLE_NAME_SECONDARY = "x_address";
 
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -114,14 +114,6 @@ public class BiodataEntity extends CommonEntity {
    private AgamaEntity religion;
 
    // Mapping ke table address
-   @Embedded
-   AddresEntity address;
-}
-
-@Embeddable
-@Data
-class AddresEntity {
-
    @Column(name = "address1", length = 1000, table = "x_address")
    private String address1;
 
@@ -163,4 +155,7 @@ class AddresEntity {
 
    @Column(name = "region2", length = 100, table = "x_address")
    private String region2;
+
 }
+
+

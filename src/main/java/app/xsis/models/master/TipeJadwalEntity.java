@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = TipeJadwalEntity.TABLE_NAME)
 public class TipeJadwalEntity implements Serializable {
-   public static final String TABLE_NAME="m_type_jadwal";
+   static final String TABLE_NAME="m_type_jadwal";
 
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
