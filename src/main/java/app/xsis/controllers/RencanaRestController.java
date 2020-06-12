@@ -66,11 +66,11 @@ public class RencanaRestController {
 
    @PostMapping
    public Map<String, Object> saveDataRencana(@RequestBody RencanaEntity rencanaEntity) {
-      String kodeUndangan = RandomUtil.generateRandomStringNumber(16);
+      String kodeRencana = RandomUtil.generateRandomStringNumber(16);
 
       rencanaEntity.setCreatedBy(1L);
       rencanaEntity.setCreatedOn(new Date());
-      rencanaEntity.setScheduleCode(kodeUndangan);
+      rencanaEntity.setScheduleCode(kodeRencana);
 
       //Save Data Rencana
       rencanaService.saveDataRencana(rencanaEntity);

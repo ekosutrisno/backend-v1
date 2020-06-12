@@ -1,0 +1,88 @@
+[
+  {
+    "fullName": "Puspita Sari",
+    "nickName": "Sari",
+    "pob": "Simpang Tiga",
+    "dob": "2020-09-12",
+    "gender": false,
+    "hight": 167,
+    "weight": 53,
+    "nationality": "Indonesia",
+    "ethnic": "Jawa",
+    "hobby": "Membaca",
+    "email": "ekosutrisno801@gmail.com",
+    "identityNo": "1609152005960001",
+    "phoneNumber1": "082381928902",
+    "phoneNumber2": "089807765645",
+    "parentPhoneNumber": "082381928933",
+    "childSequence": "1",
+    "howManyBrothers": "4",
+    "companyId": 1,
+    "address1": "Lampung",
+    "address2": "Bandung",
+    "postalCode1": "32173",
+    "postalCode2": "32174",
+    "rt1": "04",
+    "rt2": "02",
+    "rw1": "11",
+    "rw2": "05",
+    "kelurahan1": "Mangga",
+    "kelurahan2": "Apel",
+    "maritalStatus": {
+      "id": 1
+    },
+    "identityType": {
+      "id": 1
+    },
+    "religion": {
+      "id": 1
+    }
+  },
+  {
+    "idle": true,
+    "ero": false,
+    "userClient": false,
+    "biodataId": {
+      "id": 2
+    }
+  },
+  {
+    "automaticMail": false,
+    "location": "Bandung Raya, Bandung, Indonesia",
+    "otherRoTro": "Pak Andi",
+    "notes": "Melakukan Upgrading softskills",
+    "sentDate": "2020-07-05",
+    "time": "07:50",
+    "scheduleDate": "2020-07-12",
+    "status": "Dalam proses persiapan",
+    "scheduleTypeId": {
+      "id": 3
+    },
+    "ro": {
+      "id": 2
+    },
+    "tro": {
+      "id": 2
+    }
+  },
+  {
+    "scheduleTypeId": {
+      "id": 2
+    },
+    "invitationDate": "2020-06-19",
+    "time": "12:00",
+    "otherRoTro": "Eko Handoko",
+    "ro": {
+      "id": 2
+    },
+    "tro": {
+      "id": 2
+    },
+    "biodataId": {
+      "id": 1
+    },
+    "notes": "Uji Coba post Undangan",
+    "status": "On Progress",
+    "location": "Kuala Lumpur, Malaysia"
+  }
+]

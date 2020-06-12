@@ -2,7 +2,6 @@ package app.xsis.controllers;
 
 import app.xsis.dto.ResponseCustom;
 import app.xsis.dto.ResponseCustomById;
-import app.xsis.models.transaction.BiodataEntity;
 import app.xsis.models.transaction.EmployeeEntity;
 import app.xsis.services.BiodataService;
 import app.xsis.services.EmployeeService;
