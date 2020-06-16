@@ -9,6 +9,6 @@ import java.util.Map;
 public class ResponseCustom {
    private boolean status;
    private String message;
-   private Date data_created;
+   private Date time;
    private Map<String,Object> data;
 }

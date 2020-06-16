@@ -2,7 +2,6 @@ package app.xsis.controllers;
 
 import app.xsis.dto.ResponseCustom;
 import app.xsis.dto.ResponseCustomById;
-import app.xsis.models.transaction.EmployeeEntity;
 import app.xsis.models.transaction.UndanganEntity;
 import app.xsis.services.UndanganService;
 import app.xsis.utils.RandomUtil;
@@ -68,7 +67,7 @@ public class UndanganRestController {
       ResponseCustom response = new ResponseCustom();
       response.setStatus(true);
       response.setMessage("Data Rencana berhasil ditambahkan.");
-      response.setData_created(new Date());
+      response.setTime(new Date());
       response.setData(tempDataRencana);
 
       Map<String, Object> result = new HashMap<>();
@@ -105,7 +104,7 @@ public class UndanganRestController {
       ResponseCustom response = new ResponseCustom();
       response.setStatus(true);
       response.setMessage("Data Rencana berhasil ditambahkan.");
-      response.setData_created(new Date());
+      response.setTime(new Date());
       response.setData(tempDataRencana);
 
       Map<String, Object> result = new HashMap<>();
@@ -128,7 +127,7 @@ public class UndanganRestController {
       ResponseCustom response = new ResponseCustom();
       response.setStatus(true);
       response.setMessage("Data Undangan berhasil Dihapus.");
-      response.setData_created(new Date());
+      response.setTime(new Date());
       response.setData(null);
 
       Map<String, Object> result = new HashMap<>();

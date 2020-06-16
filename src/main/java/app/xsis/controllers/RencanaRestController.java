@@ -81,7 +81,7 @@ public class RencanaRestController {
       ResponseCustom response = new ResponseCustom();
       response.setStatus(true);
       response.setMessage("Data Rencana berhasil ditambahkan.");
-      response.setData_created(new Date());
+      response.setTime(new Date());
       response.setData(tempDataRencana);
 
       Map<String, Object> result = new HashMap<>();
@@ -118,7 +118,7 @@ public class RencanaRestController {
       ResponseCustom response = new ResponseCustom();
       response.setStatus(true);
       response.setMessage("Data Rencana berhasil diupdate.");
-      response.setData_created(new Date());
+      response.setTime(new Date());
       response.setData(tempDataRencana);
 
       Map<String, Object> result = new HashMap<>();
@@ -141,7 +141,7 @@ public class RencanaRestController {
       ResponseCustom response = new ResponseCustom();
       response.setStatus(true);
       response.setMessage("Data Rencana berhasil Dihapus.");
-      response.setData_created(new Date());
+      response.setTime(new Date());
       response.setData(null);
 
       Map<String, Object> result = new HashMap<>();

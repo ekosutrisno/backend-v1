@@ -79,7 +79,7 @@ public class EmployeeRestController {
 
       response.setStatus(true);
       response.setMessage("Data Employee berhasil ditambahkan.");
-      response.setData_created(new Date());
+      response.setTime(new Date());
       response.setData(tempDataEmployee);
 
       Map<String, Object> result = new HashMap<>();
@@ -115,7 +115,7 @@ public class EmployeeRestController {
 
       response.setStatus(true);
       response.setMessage("Data Employee berhasil di Update.");
-      response.setData_created(new Date());
+      response.setTime(new Date());
       response.setData(tempDataEmployee);
 
       Map<String, Object> result = new HashMap<>();
@@ -138,7 +138,7 @@ public class EmployeeRestController {
       ResponseCustom response = new ResponseCustom();
       response.setStatus(true);
       response.setMessage("Data Employee berhasil Dihapus.");
-      response.setData_created(new Date());
+      response.setTime(new Date());
       response.setData(null);
 
       Map<String, Object> result = new HashMap<>();

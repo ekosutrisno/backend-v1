@@ -1,7 +1,11 @@
 package app.xsis.controllers;
 
+import app.xsis.dto.BiodataDto;
 import app.xsis.dto.ResponseCustom;
 import app.xsis.dto.ResponseCustomById;
+import app.xsis.models.master.AgamaEntity;
+import app.xsis.models.master.DataIdentitasEntity;
+import app.xsis.models.master.StatusPernikahanEntity;
 import app.xsis.models.transaction.BiodataEntity;
 import app.xsis.models.transaction.EmployeeEntity;
 import app.xsis.services.BiodataService;
@@ -58,43 +62,37 @@ public class BiodataRestController {
    }
 
    @PostMapping
-   public Map<String, Object> insertBiodata(@RequestBody BiodataEntity bio) {
+   public Map<String, Object> insertBiodata(@RequestBody BiodataDto data) {
+      //new instance object
+      BiodataEntity bio = new BiodataEntity();
+      DataIdentitasEntity identitas = new DataIdentitasEntity();
+      AgamaEntity agama = new AgamaEntity();
+      StatusPernikahanEntity statusPernikahan = new StatusPernikahanEntity();
+
+      //Set Object id untuk (identitas tipe, agama, dan status pernikahan)
+      identitas.setId(data.getIdentityType());
+      agama.setId(data.getReligion());
+      statusPernikahan.setId(data.getMaritalStatus());
+
+      //Set gender
+      boolean gender = false;
+      if (data.getGender() == 1)
+         gender = true;
+      else if (data.getGender() == 2)
+         gender = false;
+
+      //Set Data Common
       bio.setIsComplete(false);
       bio.setIsProcess(true);
-
       bio.setCreatedBy(1L);
       bio.setCreatedOn(new Date());
-
-      //Saving Biodata to Table
-      biodataService.save(bio);
-
-      ResponseCustom response = new ResponseCustom();
-      Map<String, Object> tempData = new HashMap<>();
-      tempData.put("Biodata", bio);
-
-      response.setStatus(true);
-      response.setMessage("Data berhasil ditambahkan.");
-      response.setData_created(new Date());
-      response.setData(tempData);
-
-      Map<String, Object> result = new HashMap<>();
-      result.put("response", response);
-
-      return result;
-   }
-
-   @PutMapping("/{id}")
-   public Map<String, Object> updateBiodata(@RequestBody BiodataEntity data, @PathVariable(name = "id") Long id) {
-      BiodataEntity bio = biodataService.getBiodataById(id).get();
-
-      bio.setModifedBy(1L);
-      bio.setModifedOn(new Date());
 
       //Biodata Set
       bio.setFullName(data.getFullName());
       bio.setNickName(data.getNickName());
       bio.setPob(data.getPob());
       bio.setDob(data.getDob());
+      bio.setGender(gender);
       bio.setHight(data.getHight());
       bio.setWeight(data.getWeight());
       bio.setNationality(data.getNationality());
@@ -112,9 +110,11 @@ public class BiodataRestController {
       bio.setExpiredToken(data.getExpiredToken());
       bio.setMarriageYear(data.getMarriageYear());
       bio.setCompanyId(data.getCompanyId());
-      bio.setMaritalStatus(data.getMaritalStatus());
-      bio.setIdentityType(data.getIdentityType());
-      bio.setReligion(data.getReligion());
+
+      //Set Object
+      bio.setMaritalStatus(statusPernikahan);
+      bio.setIdentityType(identitas);
+      bio.setReligion(agama);
 
       //Address Set
       bio.setAddress1(data.getAddress1());
@@ -123,6 +123,94 @@ public class BiodataRestController {
       bio.setPostalCode2(data.getPostalCode2());
       bio.setRt1(data.getRt1());
       bio.setRt2(data.getRt2());
+      bio.setRw1(data.getRw1());
+      bio.setRw2(data.getRw2());
+      bio.setKelurahan1(data.getKelurahan1());
+      bio.setKelurahan2(data.getKelurahan2());
+      bio.setKecamatan1(data.getKecamatan1());
+      bio.setKecamatan2(data.getKecamatan2());
+      bio.setRegion1(data.getRegion1());
+      bio.setRegion2(data.getRegion2());
+
+      //Saving Biodata to Table
+      biodataService.save(bio);
+
+      ResponseCustom response = new ResponseCustom();
+      Map<String, Object> tempData = new HashMap<>();
+      tempData.put("Biodata", bio);
+
+      response.setStatus(true);
+      response.setMessage("Data berhasil ditambahkan.");
+      response.setTime(new Date());
+      response.setData(tempData);
+
+      Map<String, Object> result = new HashMap<>();
+      result.put("response", response);
+
+      return result;
+   }
+
+   @PutMapping("/{id}")
+   public Map<String, Object> updateBiodata(@RequestBody BiodataDto data, @PathVariable(name = "id") Long id) {
+      BiodataEntity bio = biodataService.getBiodataById(id).get();
+      DataIdentitasEntity identitas = new DataIdentitasEntity();
+      AgamaEntity agama = new AgamaEntity();
+      StatusPernikahanEntity statusPernikahan = new StatusPernikahanEntity();
+
+      //Set Object id untuk (identitas tipe, agama, dan status pernikahan)
+      identitas.setId(data.getIdentityType());
+      agama.setId(data.getReligion());
+      statusPernikahan.setId(data.getMaritalStatus());
+
+      //Set gender
+      boolean gender = false;
+      if (data.getGender() == 1)
+         gender = true;
+      else if (data.getGender() == 2)
+         gender = false;
+
+      //Set data Common
+      bio.setModifedBy(1L);
+      bio.setModifedOn(new Date());
+
+      //Biodata Set
+      bio.setFullName(data.getFullName());
+      bio.setNickName(data.getNickName());
+      bio.setPob(data.getPob());
+      bio.setDob(data.getDob());
+      bio.setGender(gender);
+      bio.setHight(data.getHight());
+      bio.setWeight(data.getWeight());
+      bio.setNationality(data.getNationality());
+      bio.setEthnic(data.getEthnic());
+      bio.setHobby(data.getHobby());
+      bio.setEmail(data.getEmail());
+      bio.setIdentityNo(data.getIdentityNo());
+      bio.setPhoneNumber1(data.getPhoneNumber1());
+      bio.setPhoneNumber2(data.getPhoneNumber2());
+      bio.setParentPhoneNumber(data.getParentPhoneNumber());
+      bio.setChildSequence(data.getChildSequence());
+      bio.setHowManyBrothers(data.getHowManyBrothers());
+      bio.setAddrbookId(data.getAddrbookId());
+      bio.setToken(data.getToken());
+      bio.setExpiredToken(data.getExpiredToken());
+      bio.setMarriageYear(data.getMarriageYear());
+      bio.setCompanyId(data.getCompanyId());
+
+      //Set Object
+      bio.setMaritalStatus(statusPernikahan);
+      bio.setIdentityType(identitas);
+      bio.setReligion(agama);
+
+      //Address Set
+      bio.setAddress1(data.getAddress1());
+      bio.setAddress2(data.getAddress2());
+      bio.setPostalCode1(data.getPostalCode1());
+      bio.setPostalCode2(data.getPostalCode2());
+      bio.setRt1(data.getRt1());
+      bio.setRt2(data.getRt2());
+      bio.setRw1(data.getRw1());
+      bio.setRw2(data.getRw2());
       bio.setKelurahan1(data.getKelurahan1());
       bio.setKelurahan2(data.getKelurahan2());
       bio.setKecamatan1(data.getKecamatan1());
@@ -131,7 +219,7 @@ public class BiodataRestController {
       bio.setRegion2(data.getRegion2());
 
       //Saving Biodata & Address to Table
-      biodataService.save(bio);
+      biodataService.update(bio);
 
       ResponseCustom response = new ResponseCustom();
       Map<String, Object> tempData = new HashMap<>();
@@ -139,7 +227,7 @@ public class BiodataRestController {
 
       response.setStatus(true);
       response.setMessage("Data Biodata berhasil di Update.");
-      response.setData_created(new Date());
+      response.setTime(new Date());
       response.setData(tempData);
 
       Map<String, Object> result = new HashMap<>();
@@ -170,7 +258,7 @@ public class BiodataRestController {
       ResponseCustom response = new ResponseCustom();
       response.setStatus(true);
       response.setMessage("Data Biodata berhasil Dihapus.");
-      response.setData_created(new Date());
+      response.setTime(new Date());
       response.setData(null);
 
       Map<String, Object> result = new HashMap<>();

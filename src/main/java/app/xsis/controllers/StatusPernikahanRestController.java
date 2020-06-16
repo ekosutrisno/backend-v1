@@ -40,7 +40,7 @@ public class StatusPernikahanRestController {
 
       response.setStatus(true);
       response.setMessage("Data berhasil ditambahkan.");
-      response.setData_created(new Date());
+      response.setTime(new Date());
       response.setData(tempData);
 
       Map<String, Object> result = new HashMap<>();

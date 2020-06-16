@@ -2,7 +2,6 @@ package app.xsis.controllers;
 
 
 import app.xsis.dto.ResponseCustom;
-import app.xsis.models.master.StatusPernikahanEntity;
 import app.xsis.models.master.TipeJadwalEntity;
 import app.xsis.services.TipeJadwalService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +40,7 @@ public class TipeJadwalRestController {
 
       response.setStatus(true);
       response.setMessage("Data berhasil ditambahkan.");
-      response.setData_created(new Date());
+      response.setTime(new Date());
       response.setData(tempData);
 
       Map<String, Object> result = new HashMap<>();
