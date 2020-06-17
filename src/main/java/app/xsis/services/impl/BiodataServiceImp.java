@@ -2,6 +2,7 @@ package app.xsis.services.impl;
 
 import app.xsis.dao.transaction.BiodataDao;
 import app.xsis.dao.transaction.EmployeeDao;
+import app.xsis.models.CommonEntity;
 import app.xsis.models.transaction.BiodataEntity;
 import app.xsis.services.BiodataService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class BiodataServiceImp implements BiodataService {
@@ -24,12 +26,8 @@ public class BiodataServiceImp implements BiodataService {
 
    @Override
    public List<BiodataEntity> getAllBiodata() {
-      List<BiodataEntity> tempBiodata = new ArrayList<>();
-
-      for (BiodataEntity biodata : biodataDao.findAll()) {
-         if (!biodata.getIsDelete())
-            tempBiodata.add(biodata);
-      }
+      List<BiodataEntity> tempBiodata = biodataDao.findAll().stream().filter(biodata -> !biodata.getIsDelete())
+              .collect(Collectors.toList());
       return tempBiodata;
    }
 

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class AgamaServiceImpl implements AgamaService {
@@ -23,7 +24,8 @@ public class AgamaServiceImpl implements AgamaService {
 
    @Override
    public List<AgamaEntity> getAllAgama() {
-      return agamaDao.findAll();
+      List<AgamaEntity> agama= agamaDao.findAll().stream().collect(Collectors.toList());
+      return agama;
    }
 
    @Override

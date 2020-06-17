@@ -248,12 +248,14 @@ public class BiodataRestController {
       //Saving Biodata to Table
       biodataService.update(biodata);
 
-      employee.setIsDelete(true);
-      employee.setDeletedBy(1L);
-      employee.setDeletedOn(new Date());
+      if (employee != null) {
+         employee.setIsDelete(true);
+         employee.setDeletedBy(1L);
+         employee.setDeletedOn(new Date());
 
-      //Saving Employee to Table
-      employeeService.updateEmployee(employee);
+         //Saving Employee to Table
+         employeeService.updateEmployee(employee);
+      }
 
       ResponseCustom response = new ResponseCustom();
       response.setStatus(true);
