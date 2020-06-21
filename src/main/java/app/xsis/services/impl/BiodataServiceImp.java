@@ -1,8 +1,6 @@
 package app.xsis.services.impl;
 
 import app.xsis.dao.transaction.BiodataDao;
-import app.xsis.dao.transaction.EmployeeDao;
-import app.xsis.models.CommonEntity;
 import app.xsis.models.transaction.BiodataEntity;
 import app.xsis.services.BiodataService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +8,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;

@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 
 public interface BiodataDao extends IOperations<BiodataEntity> {
    Page<BiodataEntity> findAll(Pageable pageable);
+
    BiodataEntity findByReligion(Long id);
 
    BiodataEntity findByMaritalStatus(Long id);
