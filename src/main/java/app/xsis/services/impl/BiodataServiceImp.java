@@ -17,15 +17,10 @@ public class BiodataServiceImp implements BiodataService {
    @Autowired
    private BiodataDao biodataDao;
 
-   public BiodataServiceImp(BiodataDao biodataDao) {
-      this.biodataDao = biodataDao;
-   }
-
    @Override
    public List<BiodataEntity> getAllBiodata() {
-      List<BiodataEntity> tempBiodata = biodataDao.findAll().stream().filter(biodata -> !biodata.getIsDelete())
+      return biodataDao.findAll().stream().filter(biodata -> !biodata.getIsDelete())
               .collect(Collectors.toList());
-      return tempBiodata;
    }
 
    @Override

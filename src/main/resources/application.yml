@@ -6,9 +6,9 @@ server:
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5433/xsisapp
-    username: postgres
-    password: root
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5433/xsisapp}
+    password: ${DATABASE_PASSWORD:admin}
+    username: ${DATABASE_USERNAME:postgres}
   jpa:
     hibernate:
       ddl-auto: update
@@ -20,7 +20,7 @@ spring:
         jdbc:
           lob:
             non_contextual_creation: true
-    show-sql: true
+    show-sql: false
 
 
 

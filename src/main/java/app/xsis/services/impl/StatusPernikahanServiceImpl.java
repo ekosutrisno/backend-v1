@@ -15,10 +15,6 @@ public class StatusPernikahanServiceImpl implements StatusPernikahanService {
    @Autowired
    private StatusPernikahanDao statusPernikahanDao;
 
-   public StatusPernikahanServiceImpl(StatusPernikahanDao statusPernikahanDao) {
-      this.statusPernikahanDao = statusPernikahanDao;
-   }
-
    @Override
    public List<StatusPernikahanEntity> getAllData() {
       return statusPernikahanDao.findAll();

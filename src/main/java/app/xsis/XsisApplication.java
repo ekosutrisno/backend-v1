@@ -9,23 +9,6 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 public class XsisApplication {
 
    public static void main(String[] args) {
-
-      System.setProperty("spring.config.name","web-server");
       SpringApplication.run(XsisApplication.class, args);
    }
 }
-
-//for deploy an packaging war
-
-//@SpringBootApplication
-//public class XsisApplication extends SpringBootServletInitializer {
-//
-//	public static void main(String[] args) {
-//		SpringApplication.run(XsisApplication.class, args);
-//	}
-//
-//	@Override
-//	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-//		return builder.sources(XsisApplication.class);
-//	}
-//}

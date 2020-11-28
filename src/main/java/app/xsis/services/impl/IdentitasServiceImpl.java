@@ -14,10 +14,6 @@ public class IdentitasServiceImpl implements IdentitasService {
    @Autowired
    private IdentitasDao identitasDao;
 
-   public IdentitasServiceImpl(IdentitasDao identitasDao) {
-      this.identitasDao = identitasDao;
-   }
-
    @Override
    public List<DataIdentitasEntity> getAllIdentitas() {
       return identitasDao.findAll();

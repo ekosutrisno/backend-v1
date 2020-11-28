@@ -11,28 +11,22 @@ import java.util.Optional;
 
 @Service
 public class TipeJadwalServiceImpl implements TipeJadwalService {
-   @Autowired
-   private TipeJadwalDao tipeJadwalDao;
+    @Autowired
+    private TipeJadwalDao tipeJadwalDao;
 
-   public TipeJadwalServiceImpl(TipeJadwalDao tipeJadwalDao) {
-      this.tipeJadwalDao = tipeJadwalDao;
-   }
+    @Override
+    public List<TipeJadwalEntity> getAllData() {
+        return tipeJadwalDao.findAll();
+    }
 
-   @Override
-   public List<TipeJadwalEntity> getAllData() {
-      return tipeJadwalDao.findAll();
-   }
+    @Override
+    public Optional<TipeJadwalEntity> getDataById(long id) {
+        return tipeJadwalDao
+                .findById(id);
+    }
 
-   @Override
-   public Optional<TipeJadwalEntity> getDataById(long id) {
-      if (tipeJadwalDao.findById(id) == null) {
-         return Optional.empty();
-      }
-      return tipeJadwalDao.findById(id);
-   }
-
-   @Override
-   public TipeJadwalEntity saveTipeJadwal(TipeJadwalEntity tipeJadwalEntity) {
-      return tipeJadwalDao.create(tipeJadwalEntity);
-   }
+    @Override
+    public TipeJadwalEntity saveTipeJadwal(TipeJadwalEntity tipeJadwalEntity) {
+        return tipeJadwalDao.create(tipeJadwalEntity);
+    }
 }
