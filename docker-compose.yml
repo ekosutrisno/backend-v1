@@ -1,31 +1,31 @@
 version: "3.8"
 
 services:
-  xsisapp-api-db:
+  employee-api-db:
     restart: always
-    container_name: xsisapp-api-db
+    container_name: employee-api-db
     image: postgres:13-alpine
     ports:
       - 5435:5432
     environment:
       POSTGRES_PASSWORD: ekosutrisno
       POSTGRES_USER: ekosutrisno
-      POSTGRES_DB: db_xsisapp_master
+      POSTGRES_DB: db_employee_master
     networks:
       - mynetwork
-  xsisapp-api-service:
-    container_name: xsisapp-api-service-v1
-    image: xsisapp-api-service:0.0.1
+  employee-api-service:
+    container_name: employee-api-service
+    image: employee-service:0.0.1
     ports:
       - 8090:8090
     environment:
       DATABASE_USERNAME: ekosutrisno
       DATABASE_PASSWORD: ekosutrisno
-      DATABASE_URL: jdbc:postgresql://xsisapp-api-db/db_xsisapp_master
+      DATABASE_URL: jdbc:postgresql://employee-api-db/db_employee_master
     networks:
       - mynetwork
     depends_on:
-      - xsisapp-api-db
+      - employee-api-db
 
 networks:
   mynetwork:

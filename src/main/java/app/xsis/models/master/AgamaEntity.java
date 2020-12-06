@@ -1,12 +1,16 @@
 package app.xsis.models.master;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = AgamaEntity.TABLE_NAME)
 public class AgamaEntity implements Serializable {
    static final String TABLE_NAME = "m_agama";
